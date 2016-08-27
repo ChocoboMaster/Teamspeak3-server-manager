@@ -46,6 +46,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href="{{ action('ServerController@create') }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-plus"></i> Create New Server</a>
             </div>
             @if(!$servers->count())
                 <div class="alert alert-info">

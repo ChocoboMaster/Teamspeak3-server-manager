@@ -24,6 +24,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                <a href="{{ action('ServerController@resetToken', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-plus"></i> Create token</a>
             </div>
             @if(!$tokens->count())
                 <div class="alert alert-info">
