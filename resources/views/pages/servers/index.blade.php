@@ -13,6 +13,7 @@
                             <th>Name</th>
                             <th>Ip</th>
                             <th>Slots</th>
+                            <th>Status</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -22,11 +23,25 @@
                                 <td>{{ $server->name }}</td>
                                 <td>{{ $server->ip }}:{{ $server->port }}</td>
                                 <td>{{ $server->slots }}</td>
-                                <td>
-                                    <a href="{{ action('ServerController@show', $server) }}" class="btn btn-primary">
-                                        View
-                                    </a>
-                                </td>
+                                @if(!$server->status)
+                                    <td>
+                                        Stopped!
+                                    </td>
+                                    <td>
+                                        <a href="{{ action('ServerController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                        <a href="{{ action('ServerController@start', $server) }}" class="btn btn-success" style="width: 30%"><i class="fa fa-play"></i> Start</a>
+                                    </td>
+                                @endif
+                                @if($server->status)
+                                    <td>
+                                        Running!
+                                    </td>
+                                    <td>
+                                        <a href="{{ action('ServerController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                        <a href="{{ action('ServerController@restart', $server) }}" class="btn btn-warning" style="width: 30%"><i class="fa fa-repeat"></i> Restart</a>
+                                        <a href="{{ action('ServerController@stop', $server) }}" class="btn btn-danger" style="width: 30%"><i class="fa fa-ban"></i> Stop</a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
