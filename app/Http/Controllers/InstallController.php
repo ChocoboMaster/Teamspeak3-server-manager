@@ -13,9 +13,9 @@ class InstallController extends Controller
 {
 
     public function __construct(){
-        if(User::count()){
+        /*if(User::count()){
             return redirect()->action('DashboardController@index')->with('error', 'There is already an existing user. Can\'t reinitate install');
-        }
+        }*/
     }
 
     public function index()
@@ -28,6 +28,7 @@ class InstallController extends Controller
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
+        $user->attachRole(2);
 
         return redirect()->action('DashboardController@index')->with('success', 'Installation has been completed');
     }

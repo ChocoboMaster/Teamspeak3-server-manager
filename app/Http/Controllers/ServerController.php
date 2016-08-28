@@ -16,6 +16,7 @@ class ServerController extends Controller
     protected $teamspeak;
 
     public function __construct(TeamspeakHelper $teamspeak){
+        $this->middleware('role:admin');
         $this->teamspeak = $teamspeak;
     }
 
@@ -55,7 +56,7 @@ class ServerController extends Controller
         $data = [
             'sid'   => $teamspeakServer['sid'],
             'port'  => $teamspeakServer['virtualserver_port'],
-            'ip'    => env('TS_SERVER_IP')
+            'ip'    => env('TS_SERVER_IP'),
         ];
         $server->update($data);
 

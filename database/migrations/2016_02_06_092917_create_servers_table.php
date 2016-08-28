@@ -20,6 +20,7 @@ class CreateServersTable extends Migration
             $table->string('ip')->nullable();
             $table->integer('port')->nullable();
             $table->integer('slots');
+            $table->integer('owner');
 
             $table->timestamps();
         });

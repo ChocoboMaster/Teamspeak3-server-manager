@@ -25,7 +25,8 @@ class PostAndPutCreateServerRequest extends Request
     {
         return [
             'name'  => 'required|min:4|max:100',
-            'slots' => 'required|min:1|max:9999'
+            'slots' => 'required|min:1|max:9999',
+            'owner' => 'required|min:1|max:9999'
         ];
     }
 }

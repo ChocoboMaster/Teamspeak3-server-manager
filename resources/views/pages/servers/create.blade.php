@@ -24,6 +24,14 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
+                {!! Form::label('owner', 'Owner') !!}
+                {!! Form::number('owner', null, ['class' => 'form-control', 'placeholder' => 0, 'steps' => 1]) !!}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
                 {!! Form::submit('Create Server', ['class' => 'btn btn-primary', 'style' => 'width: 100%']) !!}
             </div>
         </div>

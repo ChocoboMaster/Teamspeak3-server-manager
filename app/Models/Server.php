@@ -14,7 +14,8 @@ class Server extends Model
         'name',
         'ip',
         'port',
-        'slots'
+        'slots',
+        'owner'
     ];
     private $status;
 
@@ -42,5 +43,9 @@ class Server extends Model
     public function logs()
     {
         return $this->hasMany(Log::class);
+    }
+
+    public function scopeOwnedBy($query, $user){
+        return $query->where('owner', $user);
     }
 }
