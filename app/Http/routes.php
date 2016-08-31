@@ -23,12 +23,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/servers/{id}/reset', 'UserController@resetToken');
     Route::get('/servers/{id}/tokens', 'UserController@showTokens');
     Route::get('/servers/{id}/token/{token_id}/delete', 'UserController@deleteToken');
+    Route::get('/servers/add', 'UserController@add');
+
+    Route::get('/support', 'UserSupportController@index');
 });
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('/auth/register', 'Auth\AuthController@getRegister');
-Route::get('/install', 'InstallController@index');
-Route::post('/install', 'InstallController@install');
+//Route::get('/auth/register', 'Auth\AuthController@getRegister');
+//Route::get('/install', 'InstallController@index');
+//Route::post('/install', 'InstallController@install');

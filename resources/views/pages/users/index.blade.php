@@ -46,6 +46,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href="{{ action('UserController@add') }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-plus"></i> Add a Server</a>
             </div>
         </div>
     </div>

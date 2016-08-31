@@ -4,6 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Teamspeak 3 server manager</title>
+<title>TS3 Server Manager</title>
 
 <link href="/assets/css/style.css" rel="stylesheet">
+<link href="/assets/css/bootstrap-flaty.css" rel="stylesheet">

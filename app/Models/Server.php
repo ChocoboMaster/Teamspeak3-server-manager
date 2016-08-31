@@ -48,4 +48,8 @@ class Server extends Model
     public function scopeOwnedBy($query, $user){
         return $query->where('owner', $user);
     }
+
+    public static function scopeCountUser($query, $user){
+        return $query->where('owner', $user)->count();
+    }
 }

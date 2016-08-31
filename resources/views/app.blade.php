@@ -10,7 +10,7 @@
         @include('partials.nav')
     </nav>
 
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="padding-top: 40px;">
 
         <div class="container-fluid">
 

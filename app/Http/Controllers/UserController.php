@@ -182,4 +182,11 @@ class UserController extends Controller
             abort(404);
         }
     }
+
+    public function add(){
+
+        $userid = Auth::user()->id;
+
+        return view('pages.users.add');
+    }
 }

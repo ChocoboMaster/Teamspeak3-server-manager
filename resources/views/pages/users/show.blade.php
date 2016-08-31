@@ -22,7 +22,13 @@
                             </tr>
                             <tr>
                                 <td>Slots:</td>
-                                <td>{{ $clientCount }}/{{ $server->slots }}</td>
+                                <td>
+                                  <div class="progress" style="margin-bottom:0; padding-bottom:0;">
+                                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{$clientCount/$server->slots *100}}%; min-width: 3em;">
+                                          {{ $clientCount }}/{{ $server->slots }}
+                                      </div>
+                                  </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Status</td>
