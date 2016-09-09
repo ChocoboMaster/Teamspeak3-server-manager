@@ -16,8 +16,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        HttpException::class,
-        ModelNotFoundException::class,
+
     ];
 
     /**
@@ -43,10 +42,11 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof ModelNotFoundException) {
-            //$e = new NotFoundHttpException($e->getMessage(), $e);
-            return $response->view('errors.404', 404);
-        }else{
-          return parent::render($request, $e);
-        }  
+            return response()->view('errors.404', [], 404);
+        }else if ($e instanceof \TeamSpeak3_Exception){
+            return response()->view('errors.ts3transport', [], 404);
+        }
+
+        return parent::render($request, $e);
     }
 }
