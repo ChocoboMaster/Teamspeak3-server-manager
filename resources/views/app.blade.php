@@ -24,6 +24,7 @@
 </div>
 
 @include('partials.footer')
+@yield('footer')
 
 </body>
 

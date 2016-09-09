@@ -13,6 +13,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/servers/{id}/token/{token_id}/delete', 'ServerController@deleteToken');
         Route::get('/servers/{id}/configure', 'ServerController@showConfigure');
         Route::post('/servers/{id}/configure', 'ServerController@postConfigure');
+        Route::get('/users', 'ServerController@showUsers');
     });
 
     Route::get('/servers', 'UserController@index');

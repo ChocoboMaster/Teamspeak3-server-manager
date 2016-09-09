@@ -18,7 +18,7 @@
                             </tr>
                             <tr>
                                 <td>Host: </td>
-                                <td>{{ $server->ip }}:{{ $server->port }}</td>
+                                <td><a href="ts3server://70.52.15.61?port={{ $server->port }}">70.52.15.61:{{ $server->port }}</a></td>
                             </tr>
                             <tr>
                                 <td>Slots:</td>

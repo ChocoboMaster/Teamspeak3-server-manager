@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\TeamspeakHelper;
 use App\Models\Server;
+use App\Models\User;
 use App\Models\Token;
 use Illuminate\Http\Request;
 
@@ -237,5 +238,12 @@ class ServerController extends Controller
         $result = (new TeamspeakHelper())->updateConfiguration($server, $data);
 
         return redirect()->action('ServerController@show', $server)->with('success', 'Server successfully updated');
+    }
+
+    public function showUsers(){
+
+        $users = User::all();
+
+        return view('pages.servers.users', compact('users'));
     }
 }
