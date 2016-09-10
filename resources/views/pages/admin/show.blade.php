@@ -62,15 +62,15 @@
                             <tbody>
                             @if(!$server->status)
                                 <tr>
-                                    <td><a href="{{ action('ServerController@start', $server) }}" class="btn btn-success" style="width: 100%"><i class="fa fa-play"></i> Start</a></td>
+                                    <td><a href="{{ action('Admin\ServerController@start', $server) }}" class="btn btn-success" style="width: 100%"><i class="fa fa-play"></i> Start</a></td>
                                 </tr>
                             @endif
                             @if($server->status)
                                 <tr>
-                                    <td><a href="{{ action('ServerController@restart', $server) }}" class="btn btn-warning" style="width: 100%"><i class="fa fa-repeat"></i> Restart</a></td>
+                                    <td><a href="{{ action('Admin\ServerController@restart', $server) }}" class="btn btn-warning" style="width: 100%"><i class="fa fa-repeat"></i> Restart</a></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="{{ action('ServerController@stop', $server) }}" class="btn btn-danger" style="width: 100%"><i class="fa fa-ban"></i> Stop</a></td>
+                                    <td><a href="{{ action('Admin\ServerController@stop', $server) }}" class="btn btn-danger" style="width: 100%"><i class="fa fa-ban"></i> Stop</a></td>
                                 </tr>
                             @endif
                             </tbody>
@@ -82,16 +82,16 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><a href="{{ action('ServerController@edit', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-pencil"></i> Edit server</a></td>
+                                <td><a href="{{ action('Admin\ServerController@edit', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-pencil"></i> Edit server</a></td>
                             </tr>
                             <tr>
-                                <td><a href="{{ action('ServerController@resetToken', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-plus"></i> Create token</a></td>
+                                <td><a href="{{ action('Admin\ServerController@resetToken', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-plus"></i> Create token</a></td>
                             </tr>
                             <tr>
-                                <td><a href="{{ action('ServerController@showTokens', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-list"></i> Token summary</a></td>
+                                <td><a href="{{ action('Admin\ServerController@showTokens', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-list"></i> Token summary</a></td>
                             </tr>
                             <tr>
-                                <td><a href="{{ action('ServerController@showConfigure', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-cog"></i> Configure server</a></td>
+                                <td><a href="{{ action('Admin\ServerController@showConfigure', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-cog"></i> Configure server</a></td>
                             </tr>
                             </tbody>
                         </table>

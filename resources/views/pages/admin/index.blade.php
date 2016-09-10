@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('page_title', 'Your servers')
+@section('page_title', 'Server summary')
 
 @section('content')
     <div class="row">
@@ -28,8 +28,8 @@
                                         Stopped!
                                     </td>
                                     <td>
-                                        <a href="{{ action('UserController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
-                                        <a href="{{ action('UserController@start', $server) }}" class="btn btn-success" style="width: 30%"><i class="fa fa-play"></i> Start</a>
+                                        <a href="{{ action('Admin\ServerController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                        <a href="{{ action('Admin\ServerController@start', $server) }}" class="btn btn-success" style="width: 30%"><i class="fa fa-play"></i> Start</a>
                                     </td>
                                 @endif
                                 @if($server->status)
@@ -37,17 +37,22 @@
                                         Running!
                                     </td>
                                     <td>
-                                        <a href="{{ action('UserController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
-                                        <a href="{{ action('UserController@restart', $server) }}" class="btn btn-warning" style="width: 30%"><i class="fa fa-repeat"></i> Restart</a>
-                                        <a href="{{ action('UserController@stop', $server) }}" class="btn btn-danger" style="width: 30%"><i class="fa fa-ban"></i> Stop</a>
+                                        <a href="{{ action('Admin\ServerController@show', $server) }}" class="btn btn-primary" style="width: 30%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                        <a href="{{ action('Admin\ServerController@restart', $server) }}" class="btn btn-warning" style="width: 30%"><i class="fa fa-repeat"></i> Restart</a>
+                                        <a href="{{ action('Admin\ServerController@stop', $server) }}" class="btn btn-danger" style="width: 30%"><i class="fa fa-ban"></i> Stop</a>
                                     </td>
                                 @endif
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <a href="{{ action('UserController@add') }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-plus"></i> Add a Server</a>
+                <a href="{{ action('Admin\ServerController@create') }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-plus"></i> Create New Server</a>
             </div>
+            @if(!$servers->count())
+                <div class="alert alert-info">
+                    You don't have any servers yet. Click <a href="{{ action('Admin\ServerController@create') }}">here</a> to create one.
+                </div>
+            @endif
         </div>
     </div>
 @endsection

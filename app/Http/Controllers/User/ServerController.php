@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Helpers\TeamspeakHelper;
 use App\Models\Server;
@@ -11,7 +11,7 @@ use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ServerController extends Controller
 {
     protected $teamspeak;
     protected $user;
@@ -19,15 +19,13 @@ class UserController extends Controller
     public function __construct(TeamspeakHelper $teamspeak){
         $this->middleware('role:user');
         $this->teamspeak = $teamspeak;
-
-
     }
 
     public function index()
     {
         if(Auth::user()){
           $servers = Server::ownedBy(Auth::user()->id)->get();
-          return view('pages.users.index', compact('servers'));
+          return view('pages.user.index', compact('servers'));
         }
     }
 
@@ -47,7 +45,7 @@ class UserController extends Controller
               $viewer = $virtualServer->getViewer(new \TeamSpeak3_Viewer_Html("/images/viewer/", "/images/flags/", "data:image"));
               $clientCount = $virtualServer->clientCount();
 
-              return view('pages.users.show', compact('server', 'viewer', 'clientCount'));
+              return view('pages.user.show', compact('server', 'viewer', 'clientCount'));
             }else{
                 abort(404);
             }
@@ -138,7 +136,7 @@ class UserController extends Controller
                 ];
                 $token = Token::create($data);
 
-                return redirect()->action('UserController@showTokens', $server)->with('success', 'Token has been created');
+                return redirect()->action('User\ServerController@showTokens', $server)->with('success', 'Token has been created');
             }else{
                 abort(404);
             }
@@ -155,7 +153,7 @@ class UserController extends Controller
             if($userid == $server->owner){
                 $tokens = $server->tokens;
 
-                return view('pages.users.tokens', compact('tokens', 'server'));
+                return view('pages.user.tokens', compact('tokens', 'server'));
             }else{
                 abort(404);
             }
@@ -187,6 +185,6 @@ class UserController extends Controller
 
         $userid = Auth::user()->id;
 
-        return view('pages.users.add');
+        return view('pages.user.add');
     }
 }

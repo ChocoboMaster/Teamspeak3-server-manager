@@ -63,15 +63,15 @@
                             <tbody>
                             @if(!$server->status)
                                 <tr>
-                                    <td><a href="{{ action('UserController@start', $server) }}" class="btn btn-success" style="width: 100%"><i class="fa fa-play"></i> Start</a></td>
+                                    <td><a href="{{ action('User\ServerController@start', $server) }}" class="btn btn-success" style="width: 100%"><i class="fa fa-play"></i> Start</a></td>
                                 </tr>
                             @endif
                             @if($server->status)
                                 <tr>
-                                    <td><a href="{{ action('UserController@restart', $server) }}" class="btn btn-warning" style="width: 100%"><i class="fa fa-repeat"></i> Restart</a></td>
+                                    <td><a href="{{ action('User\ServerController@restart', $server) }}" class="btn btn-warning" style="width: 100%"><i class="fa fa-repeat"></i> Restart</a></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="{{ action('UserController@stop', $server) }}" class="btn btn-danger" style="width: 100%"><i class="fa fa-ban"></i> Stop</a></td>
+                                    <td><a href="{{ action('User\ServerController@stop', $server) }}" class="btn btn-danger" style="width: 100%"><i class="fa fa-ban"></i> Stop</a></td>
                                 </tr>
                             @endif
                             </tbody>
@@ -83,10 +83,10 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><a href="{{ action('UserController@resetToken', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-plus"></i> Create token</a></td>
+                                <td><a href="{{ action('User\ServerController@resetToken', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-plus"></i> Create token</a></td>
                             </tr>
                             <tr>
-                                <td><a href="{{ action('UserController@showTokens', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-list"></i> Token summary</a></td>
+                                <td><a href="{{ action('User\ServerController@showTokens', $server) }}" class="btn btn-primary" style="width: 100%;"><i class="fa fa-list"></i> Token summary</a></td>
                             </tr>
                             </tbody>
                         </table>

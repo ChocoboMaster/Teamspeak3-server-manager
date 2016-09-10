@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>TS3 Server Manager</title>
+<title>{{ env('PANEL_SITENAME') }}</title>
 
 <link href="/assets/css/style.css" rel="stylesheet">
 <link href="/assets/css/bootstrap-flaty.css" rel="stylesheet">

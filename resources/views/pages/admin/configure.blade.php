@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    {!! Form::open(['action' => ['ServerController@postConfigure', $server], 'method' => 'post']) !!}
+                    {!! Form::open(['action' => ['Admin\ServerController@postConfigure', $server], 'method' => 'post']) !!}
 
                     @foreach($serverData as $key => $line)
                         <div class="form-group">

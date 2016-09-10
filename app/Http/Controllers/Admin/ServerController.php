@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Helpers\TeamspeakHelper;
 use App\Models\Server;
@@ -30,7 +30,7 @@ class ServerController extends Controller
     {
         $servers = Server::all();
 
-        return view('pages.servers.index', compact('servers'));
+        return view('pages.admin.index', compact('servers'));
     }
 
     /**
@@ -40,7 +40,7 @@ class ServerController extends Controller
      */
     public function create()
     {
-        return view('pages.servers.create');
+        return view('pages.admin.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class ServerController extends Controller
         ];
         Token::create($tokenData);
 
-        return redirect()->action('ServerController@index')->with('success', 'Server successfully created');
+        return redirect()->action('Admin\ServerController@index')->with('success', 'Server successfully created');
     }
 
     /**
@@ -84,7 +84,7 @@ class ServerController extends Controller
         $viewer = $virtualServer->getViewer(new \TeamSpeak3_Viewer_Html("/images/viewer/", "/images/flags/", "data:image"));
         $clientCount = $virtualServer->clientCount();
 
-        return view('pages.servers.show', compact('server', 'viewer', 'clientCount'));
+        return view('pages.admin.show', compact('server', 'viewer', 'clientCount'));
     }
 
     /**
@@ -97,7 +97,7 @@ class ServerController extends Controller
     {
         $server = Server::findOrFail($id);
 
-        return view('pages.servers.edit', compact('server'));
+        return view('pages.admin.edit', compact('server'));
     }
 
     /**
@@ -113,7 +113,7 @@ class ServerController extends Controller
         $server->update($request->all());
         $this->teamspeak->updateServer($server);
 
-        return redirect()->action('ServerController@show', $server)->with('success', 'Server has been edited');
+        return redirect()->action('Admin\ServerController@show', $server)->with('success', 'Server has been edited');
     }
 
     /**
@@ -133,7 +133,7 @@ class ServerController extends Controller
         $this->teamspeak->deleteServer($server);
         $server->delete();
 
-        return redirect()->action('ServerController@index')->with('success', 'Server has been deleted');
+        return redirect()->action('Admin\ServerController@index')->with('success', 'Server has been deleted');
     }
 
     public function start($id)
@@ -188,7 +188,7 @@ class ServerController extends Controller
         ];
         $token = Token::create($data);
 
-        return redirect()->action('ServerController@showTokens', $server)->with('success', 'Token has been created');
+        return redirect()->action('Admin\ServerController@showTokens', $server)->with('success', 'Token has been created');
     }
 
     public function showTokens($id)
@@ -196,7 +196,7 @@ class ServerController extends Controller
         $server = Server::findOrFail($id);
         $tokens = $server->tokens;
 
-        return view('pages.servers.tokens', compact('tokens', 'server'));
+        return view('pages.admin.tokens', compact('tokens', 'server'));
     }
 
     public function deleteToken($id, $token_id)
@@ -225,7 +225,7 @@ class ServerController extends Controller
             'virtualserver_hostbutton_url' => (string)$virtualServer['virtualserver_hostbutton_url'],
         ];
 
-        return view('pages.servers.configure', compact('server', 'virtualServer', 'serverData'));
+        return view('pages.admin.configure', compact('server', 'virtualServer', 'serverData'));
     }
 
     public function postConfigure($id, Request $request)
@@ -237,13 +237,13 @@ class ServerController extends Controller
         }
         $result = (new TeamspeakHelper())->updateConfiguration($server, $data);
 
-        return redirect()->action('ServerController@show', $server)->with('success', 'Server successfully updated');
+        return redirect()->action('Admin\ServerController@show', $server)->with('success', 'Server successfully updated');
     }
 
     public function showUsers(){
 
         $users = User::all();
 
-        return view('pages.servers.users', compact('users'));
+        return view('pages.admin.users', compact('users'));
     }
 }

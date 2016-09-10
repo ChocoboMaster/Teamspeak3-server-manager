@@ -9,7 +9,7 @@
             @role('admin')
             <div class="row">
                 <div class="col-md-3">
-                    <a href="{{ action('ServerController@index') }}">
+                    <a href="{{ action('Admin\ServerController@index') }}">
                             <div class="panel panel-green">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ action('ServerController@index') }}">
+                    <a href="{{ action('Admin\ServerController@index') }}">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -97,7 +97,7 @@
                                       <td>{{ $server->ip }}:{{ $server->port }}</td>
                                       <td>{{ $server->slots }}</td>
                                       <td>
-                                          <a href="{{ action('ServerController@show', $server) }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                          <a href="{{ action('Admin\ServerController@show', $server) }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-dot-circle-o"></i> View</a>
                                       </td>
                                   </tr>
                               @endforeach
@@ -115,7 +115,7 @@
               @role('user')
                   <div class="row">
                       <div class="col-md-3">
-                          <a href="{{ action('UserController@index') }}">
+                          <a href="{{ action('User\ServerController@index') }}">
                                   <div class="panel panel-green">
                                       <div class="panel-heading">
                                           <div class="row">
@@ -132,7 +132,7 @@
                           </a>
                       </div>
                       <div class="col-md-3">
-                          <a href="{{ action('UserController@index') }}">
+                          <a href="{{ action('User\ServerController@index') }}">
                                   <div class="panel panel-primary">
                                       <div class="panel-heading">
                                           <div class="row">
@@ -203,7 +203,7 @@
                                         <td>{{ $server->ip }}:{{ $server->port }}</td>
                                         <td>{{ $server->slots }}</td>
                                         <td>
-                                            <a href="{{ action('UserController@show', $server) }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-dot-circle-o"></i> View</a>
+                                            <a href="{{ action('User\ServerController@show', $server) }}" class="btn btn-primary" style="width: 100%"><i class="fa fa-dot-circle-o"></i> View</a>
                                         </td>
                                     </tr>
                                 @endforeach

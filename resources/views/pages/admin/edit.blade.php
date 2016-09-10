@@ -3,7 +3,7 @@
 @section('page_title', 'Edit server')
 
 @section('content')
-    {!! Form::model($server, ['action' => ['ServerController@update', $server], 'method' => 'put', 'role' => 'form']) !!}
+    {!! Form::model($server, ['action' => ['Admin\ServerController@update', $server], 'method' => 'put', 'role' => 'form']) !!}
     <div class="row">
         @include('partials.messages')
         <div class="col-md-6">
