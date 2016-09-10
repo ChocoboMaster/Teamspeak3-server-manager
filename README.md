@@ -24,12 +24,13 @@ The setup is pretty simple:
 - Run composer install
     `composer install`
 - Install a teamspeak server somewhere and start it. Doing this is outside the scope of this readme file.
--   Make sure `DB_CONNECTION=sqlite` is set to sqlite!
--   Create an empty file named `database.sqlite` in the storage folder. (so `storage/database.sqlite`). If you are on Linux use `touch storage/database.sqlite`.
+-   Configure your database in `.env`.
 -   Run `php artisan migrate:refresh` to update the sqlite file with the right columns
+-   Run `php artisan db:seed` to insert user roles.
 -   Run `php artisan teamspeak:reset` to remove all existing Teamspeak servers. This is because at the moment there is no sync option. ***THIS DOES REMOVE ALL EXISTING SERVERS.***
--   Go to `yoururl.com/install` and create a new user.
--   Click on an item in the left sidebar and you will be asked to login.
+-   Go to `yoururl.com/auth/register` and create a new user.
+-   You will have to set it as an admin manually (for the moment) as an Administrator. In `role_user` set the  `role_id` to 1 on your account.
+-   Go to `yoururl.com/auth/login`
 -   Login
 -   Enjoy
 
