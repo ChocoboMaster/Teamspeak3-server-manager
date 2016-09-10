@@ -38,6 +38,10 @@ The setup is pretty simple:
 Ofcourse! Please open an issue or send me a message. I'll be more than happy to add features whenever I have time. :)
 
 ### Screens
-![Server overview](https://snapr.pw/i/86e627f677.png "Server overview")
+![Admin Overview](https://snapr.pw/i/0eb20f4d96.png "Admin Overview")
 
-![Menu](https://snapr.pw/i/bd64f1594e.png "Menu")
+![Servers (Admin)](https://snapr.pw/i/d62243c561.png "Servers Admin")
+
+![Support](https://snapr.pw/i/747c316cb8.png "Support")
+
+![Servers (User)](https://snapr.pw/i/97e9685b22.png "Servers User")
